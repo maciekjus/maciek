@@ -10,7 +10,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/login", name="app_login")
+     * @Route("/uzytkownik/zaloguj", name="app_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
@@ -20,5 +20,13 @@ class SecurityController extends AbstractController
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+    }
+
+    /**
+     * @Route("/uzytkownik/wyloguj", name="app_logout")
+     */
+    public function logout(AuthenticationUtils $authenticationUtils): Response
+    {
+        
     }
 }

@@ -1,0 +1,42 @@
+<div class="container">
+	    	<nav class="navbar navbar-expand-md navbar-light bg-light">
+	    		<a class="navbar-brand" href="/">
+	    			<img src="/images/logo_sklad.png" style="height: 50px; ">
+	    		</a>
+	    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav mr-auto">
+
+						{% for menuitem in menulist %}
+						<li class="nav-item ">
+							<a class="nav-link" href="/{{ menuitem.router }}">{{ menuitem.menutext }}</a>
+						</li>
+						{% endfor %}
+
+						{% if is_granted('ROLE_USER') %}
+						<li class="nav-item">
+							<a class="nav-link" href="">Panel</a>
+						</li>
+						{% endif %}
+						{% if is_granted('ROLE_ADMIN') %}
+						<li class="nav-item">
+							<a class="nav-link" href="">Admin</a>
+						</li>
+						{% endif %}
+					</ul>
+					<span class="navbar-text">
+
+							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+								<span style="font-size: 8pt;">Zalogowany jako</span> <span style="color: {% if is_granted('ROLE_ADMIN') %}#940016{% else %}green{% endif %}; font-weight: bold;">{{ app.user.username }}</span> 
+								<i class="fas fa-user" style="color: {% if is_granted('ROLE_ADMIN') %}#940016{% else %}green{% endif %}; "></i>  &nbsp; 
+								<a class="loginlink" href="{{ path('app_logout') }}" style="font-size: 10pt; color: #660000; ">Wyloguj</a>
+							{% else %}
+								<a class="loginlink" href="{{ path('app_login') }}">Login</a> &nbsp; 
+								<i class="fas fa-user"></i>
+							{% endif %}
+					<span class="navbar-text">
+				</div>
+	    	</nav>
+	    </div>

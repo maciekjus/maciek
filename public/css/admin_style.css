@@ -1,0 +1,6 @@
+div						{
+							border: 1px solid #fde;
+						}
+div[contenteditable] 	{
+    						outline: 10px solid #E9EACB;
+						}
