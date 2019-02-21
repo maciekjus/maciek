@@ -11,14 +11,37 @@
 	{% include "/pages/menu.html.twig" %}
 {% endblock %}
 
-
+{% block top_baner %}
+	{% include "/pages/top_baner.html.twig" %}
+{% endblock %}
 
 {% block body %}
 
 
-	<h3>{{ title }}</h3>
+	<h3 class="text-center rounded border border-light" style="margin-top: 10px; padding: 10px; background-color: #E8EDF0; font-weight: bold; ">{{ title }}</h3>
 	<hr>
+
 	{{ content|raw }}
+
+	{% if is_granted('ROLE_ADMIN') %}
+		<hr>
+		<a href="{{ path('admin_edit_page', {'page': id}) }}" class="btn btn-primary">Edycja</a>
+
+	{% endif %}
+
+	{% if contact_form == true %}
+		{% include('contact/index.html.twig') %}
+	{% endif %}
+
+	{% if start == true %}
+		{% include('start/index.html.twig') %}
+	{% endif %}
+
+	{% for addon in addons %}
+		<hr>
+		{% set data = addon.data %}
+		{% include(addon.template) %}
+	{% endfor %}
 	
 
 {% endblock %}

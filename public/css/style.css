@@ -1,3 +1,53 @@
-div				{
-					border: 1px solid red;
+divd			{
+					border: 1px solid green;
+				}
+.menu-container	{
+					padding: 2px 0;
+				}
+.top-baner		{
+					background-image: url('/images/sklad_front.jpg');
+					background-position: center bottom;
+					padding: 20px 0;
+					background-repeat: no-repeat;
+					background-size: cover;
+					height: 40%;
+				}
+
+				}
+.login-cont		{
+					padding: 8px;
+				}
+body			{
+					/* font-family: 'Rhodium Libre', sans-serif; */
+					font-family: 'Roboto', sans-serif;
+					height: 100%;
+				}
+html			{
+					height: 100%;
+				}
+.ohcontainer	{
+					background-color: #4B5153;
+					background-color: rgba(0, 0, 0, 0.7);
+					font-size: 9pt;s
+				}
+.shadowin 		{
+				   -moz-box-shadow:    inset 10px 0 10px #000000;
+				   -webkit-box-shadow: inset 10px 0 10px #000000;
+				   box-shadow:         inset 0px 60px 40px -60px #222, inset 0px -60px 40px -60px #222; 
+				}
+.offer-item		{ 
+					background-size: cover;
+					background-position: center center;
+					background-repeat: no-repeat;
+					height: 100px;
+				}
+.modal-image	{
+					background-position: center center;
+					background-size: cover;
+					background-repeat: no-repeat;
+					height: 200px;
+				}
+.startinfo		{
+					width: 100%;
+					font-size: 11pt;
 				}

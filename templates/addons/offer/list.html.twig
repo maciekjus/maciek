@@ -1,0 +1,59 @@
+<div class="row" style="margin-bottom: 20px; ">
+  <div class="col-sm-6 p-2">
+    <a href="/oferta#sprzedaz" class="rounded" style="color: white; text-decoration: none; width: 100%; background-color: #0092CE; display: block; text-align: center; font-size: 14pt; padding: 20px; font-weight: bold; ">
+      Sprzedaż
+    </a>
+  </div>
+  <div class="col-sm-6 p-2">
+    <a href="/oferta#uslugi" class="rounded" style="text-decoration: none; width: 100%; background-color: #BADA55; display: block; text-align: center; font-size: 14pt; padding: 20px; font-weight: bold; ">
+      Usługi
+    </a>
+  </div>
+</div>
+
+{% for item in data %}
+
+{% if item.title == 'modal1' %}
+
+<a name="sprzedaz">
+
+<div class="row d-flex m-5 rounded" style="background-color: #0092CE; color: white; font-weight: bold; ">
+  <div class="col-12 m-2">
+    <h4 style="text-align: center; padding: 10px; ">Sprzedaż</h4>
+  </div>
+</div>
+
+{% elseif item.title == 'modal2' %}
+
+<a name="uslugi">
+
+<div class="row d-flex m-5 rounded" style="background-color: #BADA55; font-weight: bold; ">
+  <div class="col-12 m-2">
+    <h4 style="text-align: center; padding: 10px; ">Usługi</h4>
+  </div>
+</div>
+
+{% else %}
+
+
+<div class="row d-flex align-items-center m-1">
+
+    <div class="col-md-2 offer-item rounded" style="background-image: url({{ asset('photos/' ~ item.image ~ '_a.jpg') }}); height: 140px; margin-right: 4px; margin-bottom: 6px;">
+      
+    </div>
+    <div class="col-md-2 offer-item rounded" style="background-image: url({{ asset('photos/' ~ item.image ~ '_b.jpg') }}); height: 140px; margin-bottom: 6px;">
+      
+    </div>
+    <div class="col-md-6 align-middle" style="">
+      <h1 style="font-size: 16pt; width: 100%;" class="p-1 font-weight-bold">{{ item.title }}</h1>
+      <p class="text-justify" style="font-size: 10pt; ">{{ item.content|raw }}</p>
+    </div>
+    <div class="col-md-1" style="height: 40px;">
+    </div>
+	
+</div>
+
+{% endif %}
+
+{% endfor %}
+

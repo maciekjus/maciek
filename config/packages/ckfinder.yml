@@ -1,0 +1,11 @@
+ckfinder:
+    connector:
+        licenseName: LICENSE-NAME
+        licenseKey: LICENSE-KEY
+        authenticationClass: AppBundle\CustomCKFinderAuth\CustomCKFinderAuth
+
+        resourceTypes:
+            MyResource:
+                name: MyResource
+                backend: default
+                directory: myResource

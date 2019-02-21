@@ -1,0 +1,43 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+
+<div class="row">
+	<div class="col-md-6">
+		<h2>Lista stron</h2>
+	</div>
+	<div class="col-md-6">
+		<p>
+			<span style="font-size: 9pt; color: gray; font-style: italic; ">Instrukcja:</span><br>
+			<i class="fas fa-circle text-success"></i> &nbsp; Strona widoczna publicznie<br>
+			<i class="fas fa-circle text-primary"></i> &nbsp; Strona startowa<br>
+		</p>
+	</div>
+</div>
+<hr>
+
+{% set n = 0 %}
+
+<div class="list-group">
+	{% for page in pages_list %}
+	<a href="{{ path('admin_edit_page', {'page': page.id}) }}" class="list-group-item list-group-item-action">
+		<span class="">{{ page.pageOrder }}</span> &nbsp; 
+		<i class="fas fa-circle {{ page.published ? 'text-success' : 'circle-light' }}"></i>
+		<i class="fas fa-circle {{ page.mainpage ? 'text-primary' : 'circle-light' }}"></i>
+		&nbsp; 
+		{{ page.menutext }}
+	</a>
+	{% set n = page.pageOrder %}
+	{% endfor %}
+	
+	<a href="{{ path('admin_edit_page', {'page': 'nowa'}) }}" class="list-group-item list-group-item-action new-page-list">
+		<span class="color: gray; font-weight: normal; ">{{ n + 1 }}</span> &nbsp; 
+		<i class="fas fa-circle circle-light"></i>
+		<i class="fas fa-circle circle-light"></i>
+		&nbsp; 
+		Dodaj stronę
+	</a>
+</div>
+
+
+{% endblock %}

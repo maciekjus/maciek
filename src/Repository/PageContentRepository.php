@@ -22,15 +22,31 @@ class PageContentRepository extends ServiceEntityRepository
     /**
      * @return PageContent[] Returns an array of PageContent objects
      */
-   
     public function findPublished()
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.published = :val')
-            ->setParameter('val', true)
-            //->orderBy('p.id', 'ASC')
+            ->andWhere('p.router <> :val1')
+            ->andWhere('p.published = :val2')
+            ->setParameter('val1', "start")
+            ->setParameter('val2', true)
+            ->orderBy('p.pageOrder', 'ASC')
             //->setMaxResults(10)
             ->distinct()
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+     * @return PageContent[] Returns an array of PageContent objects
+     */
+    public function findGreaterOrder($order)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.pageOrder >= :val')
+            ->setParameter('val', $order)
+            //->orderBy('p.id', 'ASC')
+            //->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;

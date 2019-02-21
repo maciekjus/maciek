@@ -56,6 +56,11 @@ class PageContent
      */
     private $mainpage;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $pageOrder;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -153,6 +158,18 @@ class PageContent
     public function setMainpage(bool $mainpage): self
     {
         $this->mainpage = $mainpage;
+
+        return $this;
+    }
+
+    public function getPageOrder(): ?int
+    {
+        return $this->pageOrder;
+    }
+
+    public function setPageOrder(int $pageOrder): self
+    {
+        $this->pageOrder = $pageOrder;
 
         return $this;
     }

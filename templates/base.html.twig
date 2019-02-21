@@ -4,15 +4,23 @@
         <meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title></title>
-        <link rel="stylesheet" href="/css/content_style.css">
+        <link href="/css/content_style.css" rel="stylesheet">
+        <link href="/css/all.css" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link href='http://fonts.googleapis.com/css?family=Rhodium+Libre&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
         {% block head %}{% endblock %}
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
         {% block top_menu %}{% endblock %}
+        {% block top_baner %}{% endblock %}
         <div class="container">
             {% block body %}{% endblock %}
+        </div>
+        <div class="container-fluid">
+            
         </div>
         {% block javascripts %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

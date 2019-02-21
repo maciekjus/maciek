@@ -1,0 +1,18 @@
+{% set sess = app.flashes('notice') %}
+{% if sess|length == 0 %}
+
+
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+
+	
+{% else %} 
+
+	{% for message in sess %}
+	    <div class="flash-notice">
+	        {{ message }}
+	    </div>
+	{% endfor %}
+
+{% endif %}

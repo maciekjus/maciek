@@ -1,0 +1,51 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block head %}
+	<script src="/js/ckeditor/ckeditor.js"></script>
+	<script src="/bundles/cksourceckfinder/ckfinder/ckfinder.js"></script>
+{% endblock %}
+
+
+
+{% block body %}
+
+<div class="row">
+	<div class="col-md-6">
+		<h2>{{ id_page ? 'Edycja strony' : 'Nowa strona'}}</h2>
+	</div>
+	<div class="col-md-6">
+		{% if last_update %}
+		<p>
+			<span style="font-size: 9pt; color: gray; font-style: italic; ">Ostatnia aktualizacja:</span><br>
+			&nbsp; {{ last_update|date('d-m-Y H:i:s') }}
+		</p>
+		{% endif %}
+	</div>
+</div>
+<hr>
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+<a href="{{ path('admin_pages') }}" role="button" class="btn btn-primary">Anuluj</a>
+{% if id_page %}
+<a href="{{ path('admin_delete_page', {'page': id_page}) }}" role="button" class="btn btn-primary">Usuń</a>
+{% endif %}
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+<script>
+
+
+var editor = CKEDITOR.replace( 'form_content', {
+      //extraPlugins: 'sourcedialog,simplebox',
+      //removePlugins: 'sourcearea',
+    });
+CKFinder.setupCKEditor( editor );
+
+</script>
+{% endblock %}

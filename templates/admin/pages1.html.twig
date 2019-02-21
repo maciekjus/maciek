@@ -1,0 +1,67 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+
+<div class="row">
+	<div class="col-md-6">
+		<h2>Lista stron</h2>
+	</div>
+	<div class="col-md-6">
+		 
+	</div>
+</div>
+<hr>
+
+{% set n = 0 %}
+
+<table class="table">
+
+	<thead class="thead-light">
+		<tr>
+			<th>Lp</th>
+			<th>Menu</th>
+			<th>Publikowana</th>
+			<th>Strona główna</th>
+		</tr>
+	</thead>
+
+	{% for page in pages_list %}
+	<tr>
+		<td>
+			{{ page.pageOrder }}
+		</td>
+		<td>
+			<a href="{{ path('admin_edit_page', {'page': page.id}) }}" class="">
+				{{ page.menutext }}
+			</a>
+		</td>
+		<td>
+			<i class="fas fa-circle {{ page.published ? 'text-success' : 'circle-light' }}"></i>
+		</td>
+		<td>
+			<i class="fas fa-circle {{ page.mainpage ? 'text-primary' : 'circle-light' }}"></i>
+		</td>
+	</tr>
+	{% set n = page.pageOrder %}
+	{% endfor %}
+	<tr>
+		<td>
+			{{ n + 1 }}
+		</td>
+		<td>
+			<a href="{{ path('admin_edit_page', {'page': 'nowa'}) }}" class="text-success">
+				Dodaj stronę
+			</a>
+		</td>
+		<td>
+			<i class="fas fa-circle circle-light"></i>
+		</td>
+		<td>
+			<i class="fas fa-circle circle-light"></i>
+		</td>
+	</tr>
+	
+</table>
+
+
+{% endblock %}

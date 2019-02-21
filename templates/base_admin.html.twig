@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title></title>
+        <link href="/css/content_style.css" rel="stylesheet">
+        <link href="/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/admin_style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        {% block head %}{% endblock %}
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div class="row container-add">
+                <div class="col-lg-2 bg-dark">
+
+                    <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ path('admin_pages') }}">Strony</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ path('pages') }}">Wyjdź</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-lg-10">
+                    <div class="top-bar"></div>
+                    {% block body %}{% endblock %}
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="container-fluid bg-dark text-light bottom-bar">
+            
+        </div>
+
+        {% block javascripts %}{% endblock %}
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </body>
+</html>

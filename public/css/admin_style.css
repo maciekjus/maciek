@@ -1,6 +1,26 @@
+/*
 div						{
 							border: 1px solid #fde;
 						}
+*/
+
 div[contenteditable] 	{
     						outline: 10px solid #E9EACB;
+    						padding: 20px 0;
+						}
+.circle-light			{
+							color: #cbdde7;
+						}
+.new-page-list			{
+							font-weight: bold;
+							font-style: italic; 
+						}
+.top-bar				{
+							height: 30px;
+						}
+.bottom-bar				{
+							height: 30px;
+						}
+.container-add			{
+							min-height: 600px;
 						}

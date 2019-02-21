@@ -1,0 +1,27 @@
+{# templates/emails/registration.html.twig #}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Formularz kontaktowy</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body>
+
+		<p style="font-size: 9pt"><i>{{ time_now }} - wiadomość wysłana przez formularz kontaktowy.</i></p>
+
+		<hr style="border: 1px solid #AEE492">
+
+		<h3 style="font-size: 12pt;"><span style="font-size: 9pt; font-weight: normal; "><i>Wiadomość od:</i></span> {{ name }}</h3>
+
+		<p>{{ message }}</p>
+
+		<hr style="border: 1px solid #AEE492">
+
+		<p>e-mail: <a href="mailto:{{ email }}">{{ email }}</a></p>
+		<p>tel: <a href="tel:{{ tel }}">{{ tel }}</a></p>
+
+	</body>
+</html>
